@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://tytnix1a4f3b"]
+[gd_scene load_steps=2 format=3 uid="uid://tytnix1a4f3b"]
 
-[node name="Semaforo" type="Node2D"]
+[ext_resource type="Script" path="res://Scenes/Semaforo/semaforo.gd" id="1_4e4go"]
+
+[node name="Semaforo" type="Node2D" node_paths=PackedStringArray("red_light", "green_light", "yellow_light")]
+position = Vector2(568, 381)
+script = ExtResource("1_4e4go")
+red_light = NodePath("Base/BaseLight1/RedLight")
+green_light = NodePath("Base/BaseLight3/GreenLight")
+yellow_light = NodePath("Base/BaseLight2/YellowLight")
 
 [node name="Base" type="Polygon2D" parent="."]
 color = Color(0.486141, 0.476469, 0.182394, 1)
@@ -20,6 +27,7 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-8, -93, -8, -77, 9, -77, 9, -93)
 
 [node name="YellowLight" type="Polygon2D" parent="Base/BaseLight2"]
+visible = false
 color = Color(1, 1, 0, 1)
 polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
 
@@ -29,5 +37,6 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-8, -93, -8, -77, 9, -77, 9, -93)
 
 [node name="GreenLight" type="Polygon2D" parent="Base/BaseLight3"]
+visible = false
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
