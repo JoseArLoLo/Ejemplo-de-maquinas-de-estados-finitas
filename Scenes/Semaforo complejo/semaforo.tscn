@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqacchl8p7l0r"]
+[gd_scene load_steps=6 format=3 uid="uid://cqacchl8p7l0r"]
 
+[ext_resource type="Script" path="res://Scenes/Semaforo complejo/semaforo.gd" id="1_mvjor"]
 [ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="1_vljir"]
+[ext_resource type="Script" path="res://Scenes/Semaforo complejo/red_light.gd" id="3_k3mwu"]
+[ext_resource type="Script" path="res://Scenes/Semaforo complejo/yellow_light.gd" id="4_vdpaw"]
+[ext_resource type="Script" path="res://Scenes/Semaforo complejo/green_light.gd" id="5_3ejyn"]
 
-[node name="Semaforo" type="Node2D"]
+[node name="Semaforo" type="Node2D" node_paths=PackedStringArray("red_light", "yellow_light", "green_light")]
 position = Vector2(568, 381)
+script = ExtResource("1_mvjor")
+red_light = NodePath("Base/BaseLight1/RedLight")
+yellow_light = NodePath("Base/BaseLight2/YellowLight")
+green_light = NodePath("Base/BaseLight3/GreenLight")
 
 [node name="Base" type="Polygon2D" parent="."]
 color = Color(0.486141, 0.476469, 0.182394, 1)
@@ -37,5 +45,15 @@ visible = false
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
 
-[node name="state machine" type="Node" parent="."]
+[node name="state machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_vljir")
+initial_state = NodePath("red")
+
+[node name="red" type="Node" parent="state machine"]
+script = ExtResource("3_k3mwu")
+
+[node name="yellow" type="Node" parent="state machine"]
+script = ExtResource("4_vdpaw")
+
+[node name="green" type="Node" parent="state machine"]
+script = ExtResource("5_3ejyn")

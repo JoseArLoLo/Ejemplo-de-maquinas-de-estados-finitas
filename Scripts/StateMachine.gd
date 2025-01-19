@@ -39,3 +39,4 @@ func _on_child_transition(state: State, new_state_name: String) -> void:
 		current_state.exit()
 	
 	new_state.enter()
+	current_state = new_state
