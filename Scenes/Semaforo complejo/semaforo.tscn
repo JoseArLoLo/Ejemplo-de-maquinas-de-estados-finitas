@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cqacchl8p7l0r"]
+[gd_scene load_steps=2 format=3 uid="uid://cqacchl8p7l0r"]
+
+[ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="1_vljir"]
 
 [node name="Semaforo" type="Node2D"]
 position = Vector2(568, 381)
@@ -34,3 +36,6 @@ polygon = PackedVector2Array(-8, -93, -8, -77, 9, -77, 9, -93)
 visible = false
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
+
+[node name="state machine" type="Node" parent="."]
+script = ExtResource("1_vljir")
