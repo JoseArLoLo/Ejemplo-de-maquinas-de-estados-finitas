@@ -1,8 +1,8 @@
 extends Node2D
 
-enum State {RED, GREEN, YELLOW}
+enum TrafficLightState {RED, GREEN, YELLOW}
 
-var current_state: State = State.RED
+var current_state: TrafficLightState = TrafficLightState.RED
 var timer: float = 0
 
 @export var red_light: Node2D
@@ -13,27 +13,27 @@ func _process(delta: float) -> void:
 	timer += delta
 	
 	match current_state:
-		State.RED:
+		TrafficLightState.RED:
 			red_light.visible = true
 			yellow_light.visible = false
 			green_light.visible = false
 			
 			if timer >= 5.:
-				current_state = State.GREEN
+				current_state = TrafficLightState.GREEN
 				timer = 0
-		State.GREEN:
+		TrafficLightState.GREEN:
 			red_light.visible = false
 			yellow_light.visible = false
 			green_light.visible = true
 			
 			if timer >= 4.:
-				current_state = State.YELLOW
+				current_state = TrafficLightState.YELLOW
 				timer = 0
-		State.YELLOW:
+		TrafficLightState.YELLOW:
 			red_light.visible = false
 			yellow_light.visible = true
 			green_light.visible = false
 			
 			if timer >= 2.:
-				current_state = State.RED
+				current_state = TrafficLightState.RED
 				timer = 0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://tytnix1a4f3b"]
 
-[ext_resource type="Script" path="res://Scenes/Semaforo/semaforo.gd" id="1_4e4go"]
+[ext_resource type="Script" path="res://Scenes/Semaforo sencillo/semaforo.gd" id="1_4e4go"]
 
 [node name="Semaforo" type="Node2D" node_paths=PackedStringArray("red_light", "green_light", "yellow_light")]
 position = Vector2(568, 381)

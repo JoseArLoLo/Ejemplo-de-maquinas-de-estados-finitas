@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cqacchl8p7l0r"]
+
+[node name="Semaforo" type="Node2D"]
+position = Vector2(568, 381)
+
+[node name="Base" type="Polygon2D" parent="."]
+color = Color(0.486141, 0.476469, 0.182394, 1)
+polygon = PackedVector2Array(-15, 0, 15, 0, 6, -22, 6, -30, 15, -30, 15, -100, -15, -100, -15, -30, -6, -30, -6, -22)
+
+[node name="BaseLight1" type="Polygon2D" parent="Base"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-8, -93, -8, -77, 9, -77, 9, -93)
+
+[node name="RedLight" type="Polygon2D" parent="Base/BaseLight1"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
+
+[node name="BaseLight2" type="Polygon2D" parent="Base"]
+position = Vector2(0, 20)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-8, -93, -8, -77, 9, -77, 9, -93)
+
+[node name="YellowLight" type="Polygon2D" parent="Base/BaseLight2"]
+visible = false
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
+
+[node name="BaseLight3" type="Polygon2D" parent="Base"]
+position = Vector2(0, 39)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-8, -93, -8, -77, 9, -77, 9, -93)
+
+[node name="GreenLight" type="Polygon2D" parent="Base/BaseLight3"]
+visible = false
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-6, -91, -6, -79, 7, -79, 7, -91)
